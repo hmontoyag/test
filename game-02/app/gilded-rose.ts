@@ -1,4 +1,4 @@
-import * as itemOperation from "./item-operations"
+import {modifyItem} from "./item-catalogue"
 
 export class Item {
     name: string;
@@ -24,9 +24,7 @@ export class GildedRose {
     */
     updateQuality() {
         for (var item of this.items){
-            if(!itemOperation.isLegendary(item)){
-                item = itemOperation.updateItem(item);
-            }
+            item = modifyItem(item)
         }
         return this.items;
     }
